@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#02293E"
+    tools:context=".ChoiceActivity">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выберите персонажа"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выберите хомячка, о котором вы будете заботиться"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="21dp"/>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rowCount="2"
+        app:columnCount="2"
+        android:padding="16dp"
+        android:layout_gravity="center">
+
+        <!-- Первая картинка -->
+        <ImageView
+            android:id="@+id/start_hom"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_margin="8dp"
+            android:contentDescription="Картинка 1"
+            android:scaleType="fitXY"
+            android:src="@drawable/happy_hom"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_row="0" />
+
+        <!-- Вторая картинка -->
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            app:layout_columnWeight="1"
+            app:layout_row="0"
+            app:layout_column="1"
+            android:layout_margin="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hom"
+            android:contentDescription="Картинка 2" />
+
+        <!-- Третья картинка -->
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            app:layout_columnWeight="1"
+            app:layout_row="1"
+            app:layout_column="0"
+            android:layout_margin="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hom"
+            android:contentDescription="Картинка 3" />
+
+        <!-- Четвертая картинка -->
+        <ImageView
+            android:id="@+id/image4"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            app:layout_columnWeight="1"
+            app:layout_row="1"
+            app:layout_column="1"
+            android:layout_margin="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hom"
+            android:contentDescription="Картинка 4" />
+    </androidx.gridlayout.widget.GridLayout>
+
+</LinearLayout>

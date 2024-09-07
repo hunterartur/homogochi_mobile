@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/enter_data"
+    tools:context=".EnterDataActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="21dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Введите данные"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="name"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:background="@drawable/rounded_edit_text"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="21dp" />
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="21dp"
+        android:background="@drawable/rounded_edit_text"
+        android:ems="10"
+        android:hint="age"
+        android:inputType="number|numberDecimal"
+        android:textColor="@color/white"
+        android:textColorHint="@android:color/darker_gray" />
+
+    <EditText
+        android:id="@+id/height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="height"
+        android:inputType="number|numberDecimal"
+        android:textColor="@color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:background="@drawable/rounded_edit_text"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="21dp"/>
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number|numberDecimal"
+        android:hint="weight"
+        android:textColor="@color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:background="@drawable/rounded_edit_text"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="21dp"/>
+
+    <RadioGroup
+        android:id="@+id/sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="21dp"
+        android:background="@drawable/rounded_edit_text"
+        android:textColor="@color/white"
+        android:textColorHint="@android:color/darker_gray">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="21dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Выберите пол"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="21dp"
+            android:background="@drawable/rounded_radio_batton"
+            android:text="Мужской"
+            android:textColor="@color/white"
+            android:textColorHint="@android:color/darker_gray" />
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="21dp"
+            android:background="@drawable/rounded_radio_batton"
+            android:text="Женский"
+            android:textColor="@color/white"
+            android:textColorHint="@android:color/darker_gray" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="21dp"
+        android:background="@drawable/rounded_edit_text"
+        android:textColor="@color/white"
+        android:textColorHint="@android:color/darker_gray">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="21dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Ваш уровень активности"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/low"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="21dp"
+            android:background="@drawable/rounded_radio_batton"
+            android:text="Низкий"
+            android:textColor="@color/white"
+            android:textColorHint="@android:color/darker_gray" />
+
+        <RadioButton
+            android:id="@+id/normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="21dp"
+            android:background="@drawable/rounded_radio_batton"
+            android:text="Средний"
+            android:textColor="@color/white"
+            android:textColorHint="@android:color/darker_gray" />
+
+        <RadioButton
+            android:id="@+id/hight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="21dp"
+            android:background="@drawable/rounded_radio_batton"
+            android:text="Высокий"
+            android:textColor="@color/white"
+            android:textColorHint="@android:color/darker_gray" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/data_press"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/golos_text_bold"
+        android:text="Далее"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        />
+
+</LinearLayout>
