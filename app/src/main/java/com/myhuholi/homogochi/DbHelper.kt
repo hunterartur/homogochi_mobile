@@ -18,7 +18,7 @@ class DbHelper(
         val queryCreateUsers =
             "CREATE TABLE IF NOT EXISTS users (id INT PRIMARY KEY, userId TEXT, name TEXT, age INT, height INT, weight INT, sex TEXT, activity TEXT)"
         val queryCreateSteps =
-            "CREATE TABLE IF NOT EXISTS steps (id INT PRIMARY KEY, userId INT, currentCountStep INT, generalCountStep INT, recomentedCountStep INT, FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE)"
+            "CREATE TABLE IF NOT EXISTS steps (id INT PRIMARY KEY, userId INT, currentProgressBar INT, recomentedCountStep INT, FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE)"
         db!!.execSQL(queryCreateUsers)
         db.execSQL(queryCreateSteps)
     }
@@ -61,7 +61,8 @@ class DbHelper(
             val height = cursor.getInt(cursor.getColumnIndexOrThrow("height"))
             val weight = cursor.getInt(cursor.getColumnIndexOrThrow("weight"))
             val sex = Sex.valueOf(cursor.getString(cursor.getColumnIndexOrThrow("sex")))
-            val activity = Active.valueOf(cursor.getString(cursor.getColumnIndexOrThrow("activity")))
+            val activity =
+                Active.valueOf(cursor.getString(cursor.getColumnIndexOrThrow("activity")))
 
             // Закрываем курсор и возвращаем объект UserInfoRequest
             cursor.close()
@@ -91,17 +92,35 @@ class DbHelper(
             do {
                 // Извлечение данных из курсора
                 val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"))
-                val currentCountStep = cursor.getInt(cursor.getColumnIndexOrThrow("currentCountStep"))
-                val generalCountStep = cursor.getInt(cursor.getColumnIndexOrThrow("generalCountStep"))
-                val recomentedCountStep = cursor.getInt(cursor.getColumnIndexOrThrow("recomentedCountStep"))
+                val currentCountStep =
+                    cursor.getInt(cursor.getColumnIndexOrThrow("currentCountStep"))
+                val generalCountStep =
+                    cursor.getInt(cursor.getColumnIndexOrThrow("generalCountStep"))
+                val recomentedCountStep =
+                    cursor.getInt(cursor.getColumnIndexOrThrow("recomentedCountStep"))
 
                 // Добавление данных в список шагов
-                stepsList.add(StepRecord(id, userId, currentCountStep, generalCountStep, recomentedCountStep))
+                stepsList.add(
+                    StepRecord(
+                        id,
+                        userId,
+                        currentCountStep,
+                        generalCountStep,
+                        recomentedCountStep
+                    )
+                )
             } while (cursor.moveToNext())
         }
 
         cursor.close()
-        return stepsList.get(0)
+        return if (stepsList.size > 0) stepsList.get(0) else null
+    }
+
+    fun updateProgressCount(userId: Int, currentProgressBar: Int) {
+        val db = this.readableDatabase
+        val values = ContentValues()
+        values.put("currentProgressBar", currentProgressBar)
+        db.update("steps", values, "userId=", arrayOf(userId.toString()))
     }
 
 }

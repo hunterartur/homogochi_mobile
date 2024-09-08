@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/active_base"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="#001A28"
     android:orientation="vertical"
     tools:context=".BaseActivity">
@@ -10,19 +11,21 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:padding="10dp"
         android:stretchColumns="5">
 
         <TableRow>
+
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Жизнь"
-                android:textSize="30dp"
                 android:textColor="@color/white"
-                />
+                android:textSize="30dp" />
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -42,7 +45,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:indeterminate="false"/>
+                android:indeterminate="false"
+                android:progress="95" />
 
             <ImageView
                 android:id="@+id/image6"
@@ -54,14 +58,14 @@
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Голод"
-                android:textSize="30dp"
                 android:textColor="@color/white"
-                />
+                android:textSize="30dp" />
         </TableRow>
 
         <TableRow
@@ -84,7 +88,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:indeterminate="false"
-                />
+                android:progress="20" />
 
             <ImageView
                 android:id="@+id/image8"
@@ -98,12 +102,11 @@
     </TableLayout>
 
     <ImageView
-        android:id="@+id/image9"
+        android:id="@+id/base_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_vertical"
-        android:layout_marginBottom="10dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/big_hom" />
+        android:src="@drawable/normal" />
 
 </LinearLayout>

@@ -42,7 +42,7 @@ enum class Active(val value: String) {
 data class StepRecord(
     val id: Int,
     val userId: Int,
-    val currentCountStep: Int,
+    val currentProgressBar: Int,
     val  generalCountStep: Int,
-    val recomentedCountStep: Int
+    val recommendedCountStep: Int
 )

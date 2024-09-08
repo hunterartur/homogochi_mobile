@@ -8,28 +8,14 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.Gson
 import com.myhuholi.homogochi.dto.Active
 import com.myhuholi.homogochi.dto.Sex
 import com.myhuholi.homogochi.dto.UserInfoRequest
-import com.myhuholi.homogochi.dto.UserInfoResponse
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.Response
-import java.io.IOException
+
 import java.util.UUID
 
 class EnterDataActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
@@ -47,7 +33,17 @@ class EnterDataActivity : AppCompatActivity() {
             val sex = findViewById<RadioGroup>(R.id.sex)
             val activity = findViewById<RadioGroup>(R.id.activity)
             val user = createUserInfoRequest(userId, name, age, height, weight, sex, activity)
-
+//            getApiInterface()
+//            apiInterface.saveUser(user).enqueue(object : Callback {
+//                override fun onFailure(call: Call, e: IOException) {
+//                    TODO("Not yet implemented")
+//                }
+//
+//                override fun onResponse(call: Call, response: Response) {
+//                    TODO("Not yet implemented")
+//                }
+//
+//            })
 //            var userInfoResponse: UserInfoResponse
 //            val requestBody = RequestBody.create(
 //                "application/json; charset=utf-8".toMediaType(),
@@ -57,8 +53,10 @@ class EnterDataActivity : AppCompatActivity() {
 //            )
 //
 //            val request = Request.Builder()
-//                .url("http://127.0.0.1:8181/register")
-//                .post(requestBody)  // Устанавливаем POST-запрос
+//                .url("http://:8181/register")
+//                .post(                Gson().toJson(
+//                    user
+//                ).toRequestBody("application/json".toMediaType()))  // Устанавливаем POST-запрос
 //                .build()
 //
 //            // Запуск запроса с помощью enqueue
