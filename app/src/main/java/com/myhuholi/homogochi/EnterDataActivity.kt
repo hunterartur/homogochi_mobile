@@ -72,7 +72,12 @@ class EnterDataActivity : AppCompatActivity() {
             // Обработка ответа
             CoroutineScope(Dispatchers.Main).launch {
                 if (response.isSuccessful) {
-                    val responseBody = response.body?.string()
+                    val responseBody = try {
+                        response.body?.string()
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        TODO("Not yet implemented")
+                    }
                     var userInfoResponse =
                         Gson().fromJson(responseBody, UserInfoResponse::class.java)
                     db.addStep(
@@ -81,7 +86,7 @@ class EnterDataActivity : AppCompatActivity() {
                             1,
                             0,
                             0,
-                            userInfoResponse.recommendedStepCount
+                            userInfoResponse.stepsCount
                         )
                     )
                 } else {
@@ -93,7 +98,7 @@ class EnterDataActivity : AppCompatActivity() {
 
     private fun createRequest(user: UserInfoRequest): Request {
         val request = Request.Builder()
-            .url("http://localhost:8181/register")
+            .url("http://192.168.192.40:8181/register")
             .post(
                 Gson().toJson(
                     user

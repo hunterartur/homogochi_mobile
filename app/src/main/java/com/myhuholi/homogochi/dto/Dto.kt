@@ -3,17 +3,30 @@ package com.myhuholi.homogochi.dto
 import java.util.UUID
 
 data class UserInfoRequest(
-    val userId: UUID,
+    val uuid: UUID,
     val name: String,
     val age: Int,
     val height: Int,
     val weight: Int,
-    val sex: Sex,
-    val activity: Active
+    val sexSysName: Sex,
+    val activitySysName: Active
 )
 
 data class UserInfoResponse(
-    val recommendedStepCount: Int
+    val uuid: UUID,
+    val name: String,
+    val age: Int,
+    val sexSysName: Sex,
+    val sexDescription: String,
+    val height: Int,
+    val weight: Int,
+    val activityRate: Int,
+    val activityRateDescription: String,
+    val stateSysName: String,
+    val stateBrief: String,
+    val stateDescription: String,
+    val stepsCount: Int,
+    val pictureBytes: String
 )
 
 enum class Sex(val value: String) {
@@ -44,5 +57,5 @@ data class StepRecord(
     val userId: Int,
     val currentProgressBar: Int,
     val  generalCountStep: Int,
-    val recommendedCountStep: Int
+    val stepsCount: Int
 )

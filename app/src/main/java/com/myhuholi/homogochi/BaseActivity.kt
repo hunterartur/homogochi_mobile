@@ -74,11 +74,11 @@ class BaseActivity : AppCompatActivity(), StepCounter.StepListener {
         if (LocalDateTime.now().hour in 9..22) {
             val progressBar = findViewById<ProgressBar>(R.id.hungry_progress)
             val percentage: Int
-            var recomentedCountStep =
-                dbHelper.getStepsByUserId(1)?.recommendedCountStep ?: 10_000
-            if (recomentedCountStep > 0) {
+            var stepsCount =
+                dbHelper.getStepsByUserId(1)?.stepsCount ?: 10_000
+            if (stepsCount > 0) {
                 percentage =
-                    progressBar.progress + (stepCount.toFloat() / recomentedCountStep * 100).toInt()
+                    progressBar.progress + (stepCount.toFloat() / stepsCount * 100).toInt()
             } else percentage = 0
             calculateProgressBar(percentage)
             progressBar.setProgress(percentage, true)
