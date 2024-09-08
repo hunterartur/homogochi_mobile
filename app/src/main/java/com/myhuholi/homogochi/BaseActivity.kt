@@ -50,19 +50,19 @@ class BaseActivity : AppCompatActivity(), StepCounter.StepListener {
         val scheduler = Executors.newSingleThreadScheduledExecutor()
         scheduler.scheduleWithFixedDelay({
             val progressBar = findViewById<ProgressBar>(R.id.hungry_progress)
-            progressBar.progress += 5
+            progressBar.setProgress(progressBar.progress - 5, true)
             if (progressBar.progress > 70) {
                 val layout = findViewById<LinearLayout>(R.id.active_base)
-                layout.setBackgroundColor(Color.parseColor("#9e9e9e"))
-                findViewById<ImageView>(R.id.base_image).setImageResource(R.drawable.dying)
+                layout.setBackgroundColor(Color.parseColor("#606e79"))
+                findViewById<ImageView>(R.id.base_image).setImageResource(R.drawable.normal)
             } else if (progressBar.progress <= 70 && progressBar.progress > 30) {
                 val layout = findViewById<LinearLayout>(R.id.active_base)
                 layout.setBackgroundColor(Color.parseColor("#5c5b60"))
                 findViewById<ImageView>(R.id.base_image).setImageResource(R.drawable.hungry)
             } else {
                 val layout = findViewById<LinearLayout>(R.id.active_base)
-                layout.setBackgroundColor(Color.parseColor("#606e79"))
-                findViewById<ImageView>(R.id.base_image).setImageResource(R.drawable.normal)
+                layout.setBackgroundColor(Color.parseColor("#9e9e9e"))
+                findViewById<ImageView>(R.id.base_image).setImageResource(R.drawable.dying)
             }
 //            dbHelper.updateProgressCount(1, progressBar.progress)
         }, 0, 5, TimeUnit.SECONDS)
@@ -91,15 +91,15 @@ class BaseActivity : AppCompatActivity(), StepCounter.StepListener {
             var recomentedCountStep =
                 dbHelper.getStepsByUserId(1)?.recommendedCountStep ?: 10_000
             if (recomentedCountStep > 0) {
-                progressBar.progress - (stepCount.toFloat() / recomentedCountStep * 100).toInt()
+                progressBar.progress + (stepCount.toFloat() / recomentedCountStep * 100).toInt()
             } else 0
         } catch (e: Exception) {
             TODO("Not yet implemented")
         }
         if (percentage > 70) {
             val layout = findViewById<LinearLayout>(R.id.active_base)
-            layout.setBackgroundColor(Color.parseColor("#9e9e9e"))
-            findViewById<ImageView>(R.id.base_image).setImageResource(R.drawable.dying)
+            layout.setBackgroundColor(Color.parseColor("#606e79"))
+            findViewById<ImageView>(R.id.base_image).setImageResource(R.drawable.normal)
         } else if (percentage <= 70 && percentage > 30) {
             val layout = findViewById<LinearLayout>(R.id.active_base)
             layout.setBackgroundColor(Color.parseColor("#5c5b60"))
@@ -107,8 +107,8 @@ class BaseActivity : AppCompatActivity(), StepCounter.StepListener {
         } else {
             try {
                 val layout = findViewById<LinearLayout>(R.id.active_base)
-                layout.setBackgroundColor(Color.parseColor("#606e79"))
-                findViewById<ImageView>(R.id.base_image).setImageResource(R.drawable.normal)
+                layout.setBackgroundColor(Color.parseColor("#9e9e9e"))
+                findViewById<ImageView>(R.id.base_image).setImageResource(R.drawable.dying)
             } catch (e: Exception) {
                 TODO("Not yet implemented")
             }
