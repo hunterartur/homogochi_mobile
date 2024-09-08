@@ -40,6 +40,17 @@ class DbHelper(
         db.insert("users", null, values)
     }
 
+    fun addStep(step: StepRecord) {
+        val values = ContentValues()
+        values.put("id", 1)
+        values.put("userId", step.userId)
+        values.put("generalCountStep", step.generalCountStep)
+        values.put("recommendedCountStep", step.recommendedCountStep)
+        values.put("currentProgressBar", step.currentProgressBar)
+        val db = this.writableDatabase
+        db.insert("steps", null, values)
+    }
+
     fun getUserById(id: Int): UserInfoRequest? {
         val db = this.readableDatabase
         val cursor = db.query(

@@ -8,7 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class FirstActivity : AppCompatActivity() {
+
     private val PREFS_NAME = "MyPrefsFile"
+
     private val KEY_FIRST_LAUNCH = "first_launch"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +24,6 @@ class FirstActivity : AppCompatActivity() {
             val editor = settings.edit()
             editor.putBoolean(KEY_FIRST_LAUNCH, false)
             editor.apply()
-
             // Показать активность приветствия или инструкций
             // (это можно сделать здесь или через таймер или анимацию)
             showIntro()
@@ -37,12 +38,10 @@ class FirstActivity : AppCompatActivity() {
         // После завершения, переключитесь на основную активность
         val intent = Intent(this, IntroActivity::class.java)
         startActivity(intent)
-//        finish() // Закрыть IntroActivity, чтобы пользователь не мог вернуться к ней
     }
 
     private fun goToMainActivity() {
         val intent = Intent(this, BaseActivity::class.java)
         startActivity(intent)
-//        finish() // Закрыть IntroActivity
     }
 }

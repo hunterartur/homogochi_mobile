@@ -51,7 +51,7 @@ class StepCounter(context: Context) : SensorEventListener {
     }
 
     override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
-        // Не используется в данном примере
+        // Не используется
     }
 
     interface StepListener {
